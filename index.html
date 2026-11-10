@@ -27,7 +27,7 @@
     header { position: sticky; top: 0; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--tint-border); z-index: 100; }
     .nav-wrapper { display: flex; align-items: center; justify-content: space-between; height: 76px; }
     .brand { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--primary); }
-    .brand-logo { width: 48px; height: 48px; flex-shrink: 0; }
+    .brand-logo { width: 52px; height: 52px; flex-shrink: 0; border-radius: 50%; object-fit: contain; }
     .brand-name { font-size: 1.05rem; font-weight: 700; display: block; }
     .brand-sub { font-size: 0.75rem; font-weight: 600; color: var(--accent); letter-spacing: 0.04em; text-transform: uppercase; }
     nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
@@ -100,8 +100,7 @@
   <header>
     <div class="container nav-wrapper">
       <a href="#" class="brand">
-        <!-- SVG Siegel Logo Original -->
-        <img src="Logo.png" alt="Dr. Sebastian Liehl" class="brand-logo">
+        <img src="Logo.png" alt="Dr. Sebastian Liehl Logo" class="brand-logo">
         <div class="brand-text">
           <span class="brand-name">Dr. Sebastian Liehl</span>
           <span class="brand-sub">Allgemeinmedizin & Arbeitsmedizin</span>
@@ -279,7 +278,7 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-brand">
-          <img src="Logo.png" alt="Dr. Sebastian Liehl" style="width: 32px; height: 32px; object-fit: contain;">
+          <img src="Logo.png" alt="Dr. Sebastian Liehl Logo" style="width: 38px; height: 38px; border-radius: 50%; object-fit: contain; flex-shrink: 0; background: #fff; padding: 2px;">
           <span style="font-weight: 600;">Dr. med. univ. Sebastian Liehl</span>
         </div>
         <div class="footer-nav">
