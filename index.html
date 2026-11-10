@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Sebastian Liehl – Facharzt für Allgemeinmedizin & Arbeitsmedizin</title>
+  <meta name="description" content="Moderne betriebliche Betreuung nach ASchG und B-BSG, Mutterschutzevaluierungen, Vor-Ort-Prävention sowie Spezialberatung für Orchester und E-Sport.">
+  <style>
+    :root {
+      --color-primary: #0E3854;
+      --color-primary-dark: #092437;
+      --color-accent: #36828E;
+      --color-accent-light: #4A9CA8;
+      --color-surface-tint: #EBF3F4;
+      --color-surface-tint-alt: #D8EAEC;
+      --color-text-main: #0E3854;
+      --color-text-muted: #3a586e;
+      --color-bg-white: #FFFFFF;
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --radius: 8px;
+      --transition: all 0.25s ease-in-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: var(--font-stack);
+      color: var(--color-text-main);
+      background-color: var(--color-bg-white);
+      line-height: 1.6;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header & Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--color-surface-tint-alt);
+      z-index: 1000;
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--color-primary);
+    }
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-sub {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--color-primary);
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    nav a:hover {
+      color: var(--color-accent);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 22px;
+      border-radius: var(--radius);
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background-color: var(--color-primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--color-accent);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--color-surface-tint);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #ffffff 0%, var(--color-surface-tint) 100%);
+      padding: 90px 0 80px;
+      border-bottom: 1px solid var(--color-surface-tint-alt);
+    }
+
+    .hero-content {
+      max-width: 820px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--color-surface-tint-alt);
+      color: var(--color-accent);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      line-height: 1.25;
+      color: var(--color-primary);
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--color-text-muted);
+      margin-bottom: 32px;
+      max-width: 720px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* Sections General */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--color-text-muted);
+      margin-bottom: 48px;
+      max-width: 720px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    /* Cards */
+    .card {
+      background: #fff;
+      border: 1px solid var(--color-surface-tint-alt);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: var(--transition);
+      box-shadow: 0 2px 4px rgba(14, 56, 84, 0.03);
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 16px rgba(14, 56, 84, 0.08);
+      border-color: var(--color-accent);
+      transform: translateY(-2px);
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 6px;
+      background: var(--color-surface-tint);
+      color: var(--color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      color: var(--color-primary);
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+    }
+
+    .card ul {
+      margin-top: 14px;
+      padding-left: 20px;
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+    }
+
+    .card ul li {
+      margin-bottom: 6px;
+    }
+
+    /* Section Highlights */
+    .bg-tint {
+      background-color: var(--color-surface-tint);
+    }
+
+    /* Honorar / Banner */
+    .fee-box {
+      background: #fff;
+      border-left: 4px solid var(--color-accent);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      box-shadow: 0 4px 8px rgba(14, 56, 84, 0.04);
+      margin-top: 24px;
+    }
+
+    .fee-box h4 {
+      font-size: 1.15rem;
+      color: var(--color-primary);
+      margin-bottom: 10px;
+    }
+
+    /* Contact Form & Layout */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      background: #fff;
+      border: 1px solid var(--color-surface-tint-alt);
+      border-radius: var(--radius);
+      padding: 44px;
+      box-shadow: 0 4px 12px rgba(14, 56, 84, 0.05);
+    }
+
+    .contact-info h3 {
+      font-size: 1.5rem;
+      color: var(--color-primary);
+      margin-bottom: 16px;
+    }
+
+    .contact-item {
+      margin-bottom: 20px;
+    }
+
+    .contact-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .contact-val {
+      font-size: 1.05rem;
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--color-surface-tint-alt);
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--color-primary);
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px rgba(54, 130, 142, 0.15);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--color-primary-dark);
+      color: #fff;
+      padding: 60px 0 30px;
+      font-size: 0.9rem;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-nav a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      margin-left: 20px;
+      transition: var(--transition);
+    }
+
+    .footer-nav a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      padding-top: 24px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.8rem;
+    }
+
+    /* Modals for Impressum / Datenschutz */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(14, 56, 84, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #fff;
+      border-radius: var(--radius);
+      max-width: 680px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 36px;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      font-size: 1.5rem;
+      border: none;
+      background: none;
+      cursor: pointer;
+      color: var(--color-primary);
+    }
+
+    @media (max-width: 860px) {
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      nav ul {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="container nav-wrapper">
+      <a href="#" class="brand">
+        <!-- SVG Siegel Logo -->
+        <svg class="brand-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="47" stroke="#0E3854" stroke-width="2.5"/>
+          <circle cx="50" cy="50" r="41" stroke="#36828E" stroke-width="1.5"/>
+          <!-- Zahnrad Symbolik -->
+          <circle cx="50" cy="50" r="24" stroke="#36828E" stroke-width="2" stroke-dasharray="3 3"/>
+          <!-- Äskulapstab im Herz -->
+          <path d="M50 32 C43 24 33 28 33 38 C33 48 50 64 50 64 C50 64 67 48 67 38 C67 28 57 24 50 32 Z" fill="#EBF3F4" stroke="#0E3854" stroke-width="1.5"/>
+          <line x1="50" y1="26" x2="50" y2="60" stroke="#0E3854" stroke-width="2" stroke-linecap="round"/>
+          <path d="M46 36 Q54 40 46 44 T54 52" fill="none" stroke="#36828E" stroke-width="2" stroke-linecap="round"/>
+          <!-- Schützende Bögen/Hände -->
+          <path d="M22 62 C26 72 37 78 50 78 C63 78 74 72 78 62" stroke="#0E3854" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <div class="brand-text">
+          <span class="brand-name">Dr. Sebastian Liehl</span>
+          <span class="brand-sub">Allgemeinmedizin & Arbeitsmedizin</span>
+        </div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#leistungen">Regelbetreuung</a></li>
+          <li><a href="#praevention">Vor-Ort-Prävention</a></li>
+          <li><a href="#spezial">Spezialbereiche</a></li>
+          <li><a href="#honorare">Konditionen</a></li>
+          <li><a href="#kontakt" class="btn btn-primary">Betriebsanfrage</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="badge">Rechtssicherheit & Gesundheitsschutz</span>
+      <h1>Arbeitsmedizinische Betreuung mit klinischer Expertise.</h1>
+      <p>Präzise Umsetzung der gesetzlichen Vorgaben nach ASchG und B-BSG, strukturierte Vor-Ort-Betreuung sowie spezialisierte Ergonomiekonzepte für moderne Betriebe, Orchester und High-Performance-Arbeitsplätze.</p>
+      <div class="hero-actions">
+        <a href="#kontakt" class="btn btn-primary">Unverbindliche Erstberatung anfragen</a>
+        <a href="#leistungen" class="btn btn-secondary">Leistungskatalog einsehen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gesetzliche Betreuung -->
+  <section id="leistungen">
+    <div class="container">
+      <h2 class="section-title">Gesetzliche Regelbetreuung (ASchG / B-BSG)</h2>
+      <p class="section-desc">Rechtssichere und praxisorientierte Begleitung Ihres Unternehmens zur Erfüllung aller gesetzlichen Pflichten für privatwirtschaftliche Betriebe und Bundesdienststellen.</p>
+      
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon">01</div>
+          <h3>Arbeitsplatzbegehungen</h3>
+          <p>Systematische Erfassung und Beurteilung physischer sowie psychischer Gefährdungspotenziale direkt am Arbeitsplatz inklusive schriftlicher Stellungnahmen.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">02</div>
+          <h3>Mutterschutzevaluierungen</h3>
+          <p>Rechtskonforme Evaluierung nach MSchG (§§ 2a, 2b, 4) zum Schutz werdender und stillender Mütter vor gefährlichen Einwirkungen, Hebelasten und Schadstoffen.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">03</div>
+          <h3>Präventionszeit-Erfüllung</h3>
+          <p>Verlässliche Ableistung und Dokumentation der gesetzlich vorgeschriebenen sicherheitstechnischen und arbeitsmedizinischen Betreuungszeiten.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Allgemeinmedizin vor Ort -->
+  <section id="praevention" class="bg-tint">
+    <div class="container">
+      <h2 class="section-title">Allgemeinmedizinische Prävention vor Ort</h2>
+      <p class="section-desc">Niedrigschwellige medizinische Kompetenz direkt in Ihrem Betrieb – für weniger Krankenstände, schnellere Abklärungen und den Erhalt der Leistungsfähigkeit.</p>
+      
+      <div class="grid-2">
+        <div class="card">
+          <h3>Vor-Ort-Sprechstunden & Screening</h3>
+          <p>Regelmäßige Konsultationen direkt im Betrieb zur frühzeitigen Identifikation gesundheitlicher Risikofaktoren.</p>
+          <ul>
+            <li>Herz-Kreislauf- und Stoffwechsel-Checks (Blutdruck, Blutzucker, kardiovaskuläres Risikoprofil)</li>
+            <li>Prävention von Muskel-Skelett-Erkrankungen (Wirbelsäule, Gelenke, Halteapparat)</li>
+            <li>Lotsenfunktion zu Fachärzten, Hausärzten und Sozialversicherungsträgern</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Betriebliches Impfwesen & Medikation</h3>
+          <p>Gezielte Vorsorgekonzepte angepasst an die spezifischen Expositionen Ihrer Arbeitsbereiche.</p>
+          <ul>
+            <li>Tätigkeitsbezogene Impfberatung und Durchführung von betrieblichen Schutzimpfungen vor Ort</li>
+            <li>Sicherheitsrelevante Überprüfung von Dauermedikationen hinsichtlich Reaktionsfähigkeit und Bedienen von Maschinen</li>
+            <li>Unterstützung bei Wiedereingliederungsteilzeit (WIETZ)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Spezialdisziplinen -->
+  <section id="spezial">
+    <div class="container">
+      <h2 class="section-title">Spezialisierte Betreuungsfelder</h2>
+      <p class="section-desc">Maßgeschneiderte medizinische und ergonomische Lösungen für Branchen mit außergewöhnlichen physischen und akustischen Belastungen.</p>
+      
+      <div class="grid-2">
+        <div class="card">
+          <span class="badge">Darstellende Kunst</span>
+          <h3>Orchestermedizin</h3>
+          <p>Musikerinnen und Musiker sind Hochleistungssportler. Zielgerichtete Beratung verhindert chronische Ausfälle im Orchestergraben.</p>
+          <ul>
+            <li>Prävention und differenzierte Einordnung der fokalen Dystonie (Musikerdystonie)</li>
+            <li>Gehörschutzmanagement und Lärmevaluierung nach VOLV im akustischen Raum</li>
+            <li>Instrumentenspezifische Haltungsanalysen zur Entlastung des Schulter-Nacken-Gürtels</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="badge">Digital & Performance</span>
+          <h3>E-Sport & Profi-Gaming</h3>
+          <p>Maximale Reaktionsfähigkeit und langfristige Belastbarkeit für professionelle E-Sportler und High-End-Bildschirmarbeitsplätze.</p>
+          <ul>
+            <li>Prävention von Repetitive-Strain-Injury-Syndromen (Mausarm, Sehnenscheidenentzündung)</li>
+            <li>Biomechanische Anpassung von Sitzhöhe, Tischabstand, Handgelenkauflagen und Displays</li>
+            <li>Leistungsoptimierung durch Schlafhygiene, Mikropausen und Regenerationsmanagement</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Honorare & Konditionen -->
+  <section id="honorare" class="bg-tint">
+    <div class="container">
+      <h2 class="section-title">Transparente Honorargestaltung</h2>
+      <p class="section-desc">Klare vertragliche Grundlagen ohne versteckte Bindungen, angepasst an die Größe und Bedürfnisse Ihrer Organisation.</p>
+      
+      <div class="fee-box">
+        <h4>Verlässliche Abrechnung nach Qualitätsstandards</h4>
+        <p>Die Abrechnung der gesetzlich vorgeschriebenen Präventionszeiten erfolgt transparent auf Basis der jeweils gültigen offiziellen <strong>Honorarempfehlungen der Österreichischen Ärztekammer (ÖÄK)</strong> für Arbeitsmedizin.</p>
+        <p style="margin-top: 10px; font-size: 0.95rem; color: var(--color-text-muted);">Für zusätzliche, über die gesetzliche Präventionszeit hinausgehende Leistungen (z. B. betriebliche Impfaktionen, vertiefende Einzelschulungen oder Spezialevaluierungen) gilt derselbe transparente Stundensatz bzw. eine bedarfsgerecht adaptierte Vereinbarung.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontakt & Erstgespräch -->
+  <section id="kontakt">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <h3>Erstgespräch vereinbaren</h3>
+          <p style="color: var(--color-text-muted); margin-bottom: 24px;">Gerne klären wir in einem ersten Gespräch den konkreten Präventionszeitbedarf Ihres Unternehmens und erstellen ein maßgeschneidertes Betreuungskonzept.</p>
+          
+          <div class="contact-item">
+            <div class="contact-label">Kontakt per E-Mail</div>
+            <div class="contact-val">office@gesundsmartinformiert.com</div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-label">Einsatzgebiet</div>
+            <div class="contact-val">Wien, Niederösterreich & überregional nach Absprache</div>
+          </div>
+        </div>
+
+        <form class="contact-form" action="mailto:office@gesundsmartinformiert.com" method="post" enctype="text/plain">
+          <div class="form-group">
+            <label for="name">Ihr Name / Ansprechperson *</label>
+            <input type="text" id="name" name="Name" required placeholder="z. B. Mag. Maria Muster">
+          </div>
+          <div class="form-group">
+            <label for="company">Unternehmen / Organisation *</label>
+            <input type="text" id="company" name="Unternehmen" required placeholder="z. B. Musterbetrieb GmbH">
+          </div>
+          <div class="form-group">
+            <label for="employees">Mitarbeiteranzahl ca.</label>
+            <select id="employees" name="Mitarbeiteranzahl">
+              <option value="1-10">1 – 10 Mitarbeiter</option>
+              <option value="11-50">11 – 50 Mitarbeiter</option>
+              <option value="51-250">51 – 250 Mitarbeiter</option>
+              <option value="250+">Über 250 Mitarbeiter</option>
+              <option value="Orchester/Spezial">Kultur- / Orchesterbetrieb</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Ihr Anliegen / Gewünschte Betreuung</label>
+            <textarea id="message" name="Nachricht" rows="4" placeholder="z. B. Begehung nach ASchG, Mutterschutzevaluierung, Angebot für Regelbetreuung..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin-top: 8px;">Anfrage absenden</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <svg width="32" height="32" viewBox="0 0 100 100" fill="none">
+            <circle cx="50" cy="50" r="45" stroke="#36828E" stroke-width="3"/>
+            <path d="M50 32 C43 24 33 28 33 38 C33 48 50 64 50 64 C50 64 67 48 67 38 C67 28 57 24 50 32 Z" fill="#36828E"/>
+          </svg>
+          <span style="font-weight: 600;">Dr. med. univ. Sebastian Liehl</span>
+        </div>
+        <div class="footer-nav">
+          <a href="javascript:void(0)" onclick="openModal('impressum')">Impressum</a>
+          <a href="javascript:void(0)" onclick="openModal('datenschutz')">Datenschutz</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Dr. Sebastian Liehl. Alle Rechte vorbehalten. Facharzt für Allgemeinmedizin & Arbeitsmedizin.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal Impressum -->
+  <div id="modal-impressum" class="modal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('impressum')">&times;</button>
+      <h3 style="margin-bottom: 16px; color: var(--color-primary);">Impressum</h3>
+      <p><strong>Medieninhaber & Betreiber:</strong><br>
+      Dr. med. univ. Sebastian Liehl<br>
+      Facharzt für Allgemeinmedizin und Familienmedizin<br>
+      Arbeitsmedizin<br>
+      E-Mail: office@gesundsmartinformiert.com</p>
+      <p style="margin-top: 14px;"><strong>Zuständige Kammer:</strong> Ärztekammer für Niederösterreich / Österreichische Ärztekammer<br>
+      <strong>Berufsbezeichnung:</strong> Facharzt für Allgemeinmedizin und Familienmedizin (verliehen in Österreich)<br>
+      <strong>Berufsrechtliche Vorschriften:</strong> Ärztegesetz 1998 (abrufbar unter www.ris.bka.gv.at)</p>
+    </div>
+  </div>
+
+  <!-- Modal Datenschutz -->
+  <div id="modal-datenschutz" class="modal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('datenschutz')">&times;</button>
+      <h3 style="margin-bottom: 16px; color: var(--color-primary);">Datenschutzerklärung</h3>
+      <p>Der Schutz Ihrer personenbezogenen Daten ist uns ein wichtiges Anliegen. Diese Website wird als statische Webpräsenz über GitHub Pages betrieben. Es werden weder Tracking-Cookies, Analysedienste (wie Google Analytics) noch Werbe-Netzwerke eingesetzt.</p>
+      <p style="margin-top: 12px;"><strong>Server-Logfiles:</strong> Beim Aufruf der Seite erfasst der Hosting-Provider (GitHub Inc.) technisch notwendige Verbindungsdaten (z. B. IP-Adresse, Browser-Typ, Zugriffszeitpunkt) zur Abwehr von Angriffen und Sicherstellung der Systemstabilität.</p>
+      <p style="margin-top: 12px;"><strong>Kontaktaufnahme:</strong> Wenn Sie uns per E-Mail oder über das Kontaktformular ansprechen, werden Ihre Angaben ausschließlich zur Bearbeitung der Anfrage und für eventuelle Anschlussfragen verarbeitet.</p>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById('modal-' + id).classList.add('active');
+    }
+    function closeModal(id) {
+      document.getElementById('modal-' + id).classList.remove('active');
+    }
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.classList.remove('active');
+      }
+    };
+  </script>
+</body>
+</html>
