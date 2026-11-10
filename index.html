@@ -634,7 +634,7 @@
           </div>
         </div>
 
-        <form class="contact-form" action="mailto:office@gesundsmartinformiert.com" method="post" enctype="text/plain">
+        <form class="contact-form" onsubmit="location.href='mailto:office@gesundsmartinformiert.com?subject=Anfrage&body=' + encodeURIComponent(document.getElementById('message').value); return false;">
           <div class="form-group">
             <label for="name">Ihr Name / Ansprechperson *</label>
             <input type="text" id="name" name="Name" required placeholder="z. B. Mag. Maria Muster">
